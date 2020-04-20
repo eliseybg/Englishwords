@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">#00FAFAFA</color>
+    <color name="colorAccent">#FAFAFA</color>
+    <color name="backgroundColor">#303030</color>
+    <color name="textColor">#fcfcfc</color>
+    <color name="hintColor">#C1C1C1</color>
+    <color name="buttonColor">#a1a1a1</color>
+
+    <color name="buttonSolidNormal">#B1B0B0</color>
+    <color name="buttonStrokeNormal">#A5C2F0</color>
+    <color name="buttonSolidPressed">#C5C5C5</color>
+    <color name="buttonStrokePressed">#88B7FF</color>
+
+    <color name="splashScreen">#2A5FFD</color>
+
+</resources>
