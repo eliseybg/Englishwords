@@ -3,8 +3,10 @@ package com.breaktime.englishwords;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -196,8 +199,6 @@ public class LearnWords extends AppCompatActivity implements TextToSpeech.OnInit
         textViewSize.setText(0 + "");
         textView.setText("No more words left");
         EditText editText = findViewById(R.id.editTextEng);
-//        editText.setFocusableInTouchMode(false);
-//        editText.setEnabled(false);
         Button button = findViewById(R.id.btnCheck);
         button.setClickable(false);
     }
@@ -213,6 +214,48 @@ public class LearnWords extends AppCompatActivity implements TextToSpeech.OnInit
         System.out.println(errorsLine);
         SaveData saveData = new SaveData(getSharedPreferences(PREFS_FILE, MODE_PRIVATE));
         saveData.setMistakes(errorsLine);
+    }
+
+    public void getSpeech(View view){
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        startActivityForResult(intent, 10);
+        intent.putExtra( RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH);
+        if(intent.resolveActivity(getPackageManager()) != null){
+            startActivityForResult(intent, 10);
+        }
+        else Toast.makeText(this, "your device don't support voice input", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case 10:
+                if(resultCode == RESULT_OK && data != null){
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    String input = result.get(0).toLowerCase();
+                    if (input.equals(engWords.get(i))) {
+                        hints++;
+                        setHintStyle();
+                        rusWords.remove(i);
+                        engWords.remove(i);
+                        if (rusWords.size() != 0)
+                            setWord();
+                        else {
+                            endWords();
+                        }
+                    } else {
+                        errors.add(engWords.get(i) + " - " + rusWords.get(i));
+                        System.out.println(engWords.get(i) + " - " + rusWords.get(i));
+                        System.out.println(errors.get(errors.size() - 1));
+                        saveErrors();
+                        setWord();
+                    }
+                }
+                break;
+        }
     }
 
     @Override

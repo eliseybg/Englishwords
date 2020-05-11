@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:textColor="@color/textColor"
             android:background="#DDC5C5C5"
             android:onClick="setWordsLayout"
-            android:text="words" />
+            android:text="words"
+            android:textColor="@color/textColor" />
 
         <Button
             android:id="@+id/btnCheckLayout"
@@ -35,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#83D3D3D3"
-            android:textColor="@color/textColor"
             android:onClick="setCheckLayout"
-            android:text="check" />
+            android:text="check"
+            android:textColor="@color/textColor" />
 
     </LinearLayout>
 
@@ -132,22 +132,37 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
-            android:hint="word in english"
-            android:ems="10"
-            android:inputType="text"
             android:cursorVisible="true"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/textColor"/>
+            android:ems="10"
+            android:hint="word in english"
+            android:inputType="text"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/hintColor" />
 
-        <Button
-            android:id="@+id/btnCheck"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="checkWords"
-            android:textColor="#fafafa"
-            android:textStyle="bold"
+            android:orientation="horizontal"
+            android:background="#EDECEC">
+        <Button
+            android:id="@+id/btnCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/button_check"
-            android:text="check" />
+            android:onClick="checkWords"
+            android:text="check"
+            android:textColor="#fafafa"
+            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnSpeak"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/voice_keyboard_buttons"
+                android:onClick="getSpeech" />
+        </LinearLayout>
     </LinearLayout>
 
     <TextView

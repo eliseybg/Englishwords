@@ -1065,12 +1065,39 @@ Unified Modeling Language - UML - унифицированный язык мод
 curly brackets - фигурные скобки\n
 superclass - суперкласс\n
 subclass - подкласс\n
-hierarchy - иерархия
+hierarchy - иерархия\n
 message - сообщение/запуск\n
 polymorphism - полиморфизм\n
 perceive the world - воспринимать мир\n
 encapsulation - инкапсуляция\n
 runtime efficiency - эффективность исполнения\n
+black hats - черные шляпы\n
+creep into - проникать в\n
+security defects - дефекты безопасности\n
+buffer overflow - переполнение буфера\n
+verbose error messages - подробные сообщения об ошибках\n
+address space randomization - рандомизация адресного пространства\n
+anticipate - предвидеть\n
+Software security - Безопасность программного обеспечения\n
+Formal methods - Формальные методы\n
+Threat - угроза\n
+Spoofing - Подделка\n
+Tampering - фальсификация\n
+Repudiation - отречение\n
+Information disclosure - Раскрытие информации\n
+Denial of servic - Отказ в обслуживании\n
+Elevation of privilege - Повышение привилегий\n
+Damage - Наносить ущерб\n
+Reproduce - воспроизводить\n
+Exploit - использовать\n
+Affected - Затронутые\n
+Discovered - открытый\n
+Defensive programming - Оборонительное программирование\n
+source code walkthroughs - пошаговые руководства по исходному коду\n
+simplification - упрощение\n
+filtering input - фильтрация ввода\n
+Signed code - Подписанный код\n
+patch - патч\n
     </string>
     <string name="unit_8_Information_Technologies"></string>
 
